@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - microcks-minimal.yaml
   - microcks-ingress.yaml
+  - microcks-grpc-ingress.yaml
+  - microcks-keycloak-ingress.yaml

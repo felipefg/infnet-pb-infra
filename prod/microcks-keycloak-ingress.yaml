@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: microcks
+    group: microcks
+  name: microcks-keycloak
+  namespace: microcks
+spec:
+  ingressClassName: kong
+  rules:
+  - host: microcks-keycloak.bloco.live
+    http:
+      paths:
+      - backend:
+          service:
+            name: microcks-keycloak
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - microcks-keycloak.bloco.live
+    secretName: microcks-keycloak-ingress-secret
