@@ -2,6 +2,7 @@ apiVersion: microcks.github.io/v1alpha1
 kind: MicrocksInstall
 metadata:
   name: microcks
+  namespace: microcks
 spec:
   # Add fields here
   name: microcks
