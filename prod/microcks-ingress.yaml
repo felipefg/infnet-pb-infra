@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: microcks
+    group: microcks
+  name: microcks
+  namespace: microcks
+spec:
+  ingressClassName: kong
+  rules:
+  - host: microcks.bloco.live
+    http:
+      paths:
+      - backend:
+          service:
+            name: microcks
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - microcks.bloco.live
+    secretName: microcks-microcks-ingress-secret
